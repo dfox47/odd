@@ -1,0 +1,22 @@
+// SCSS document
+// Powered by Denis FOX | dfox@foxartbox.com
+
+//@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;300;400;700;800&display=swap');
+
+// colors
+$c_content_bg:      #112948;
+$c_primary:         #1e3554;
+$c_highlight:       #00b1ff;
+
+// @medias
+$desktop:           'only screen and (min-width: 1279px)';
+$mobile:            'only screen and (min-width: 767px)';
+$mobile_s:          'only screen and (min-width: 500px)';
+$tablet:            'only screen and (min-width: 1023px)';
+
+$transition:        all .3s ease-in-out;
+
+$i:                 '/src/assets/i';
+$icons:             $i + '/icons';
+
+$font_main:         Arial, Helvetica, sans-serif;

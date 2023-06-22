@@ -1,0 +1,39 @@
+body {
+	background-color: #45db8f;
+	color: #000;
+	font-size: 20px;
+	margin: 0 auto;
+	max-width: 600px;
+	padding: 30px;
+}
+
+button {
+	border: 0 none;
+}
+
+img {
+	max-width: 100%;
+}
+
+.btn {
+	cursor: pointer;
+	display: inline-block;
+
+	&--back {
+		background: url(#{$icons}/arrow-left.svg);
+		height: 16px;
+		width: 9px;
+	}
+}
+
+.logo {
+	display: inline-block;
+	height: 18px;
+	width: 33px;
+
+	&__img {
+		object-fit: contain;
+		height: 100%;
+		width: 100%;
+	}
+}
