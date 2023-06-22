@@ -4,7 +4,7 @@
 			<h2>Search teams</h2>
 
 			<div class="search">
-				<input class="search__input" type="text">
+				<input class="search__input" type="text" placeholder="Search for a team">
 
 				<button class="btn btn--close search__close"></button>
 			</div>
