@@ -1,13 +1,15 @@
 <template>
 	<header class="header">
-		<button class="btn btn--back"></button>
+		<div class="header-left">
+			<button class="btn btn--back"></button>
 
-		<a class="logo" href="/"><img class="logo__img" src="@/assets/i/logo.svg" alt="logo"></a>
+			<a class="logo" href="/"><img class="logo__img" src="@/assets/i/logo.svg" alt="logo"></a>
+		</div>
 
 		<div class="header-title">RichyRich</div>
 
-		<div class="info-bell">
-			<span class="info-bell__number">2</span>
+		<div class="notification">
+			<span class="notification__number">2</span>
 		</div>
 	</header>
 </template>

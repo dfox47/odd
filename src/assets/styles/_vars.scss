@@ -1,7 +1,7 @@
 // SCSS document
 // Powered by Denis FOX | dfox@foxartbox.com
 
-//@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;300;400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,700;1,600;1,700&display=swap');
 
 // colors
 $c_content_bg:      #112948;
@@ -19,4 +19,4 @@ $transition:        all .3s ease-in-out;
 $i:                 '/src/assets/i';
 $icons:             $i + '/icons';
 
-$font_main:         Arial, Helvetica, sans-serif;
+$font_main:         'Montserrat', Arial, Helvetica, sans-serif;

@@ -1,5 +1,20 @@
 .header {
 	align-items: center;
+	background-color: $c_primary;
+	color: #fff;
 	display: flex;
 	justify-content: space-between;
+	padding: 18px 15px;
+}
+
+.header-left {
+	align-items: center;
+	display: flex;
+}
+
+.header-title {
+	font-size: 15px;
+	font-style: italic;
+	font-weight: 700;
+	margin: 0 0 0 -24px;
 }
