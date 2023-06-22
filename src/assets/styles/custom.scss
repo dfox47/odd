@@ -21,6 +21,7 @@ body {
 }
 
 button {
+	background: none;
 	border: 0 none;
 }
 
@@ -31,11 +32,44 @@ img {
 .btn {
 	cursor: pointer;
 	display: inline-block;
+	position: relative;
 
 	&--back {
-		background: url(#{$icons}/arrow-left.svg);
 		height: 16px;
 		width: 9px;
+
+		&::after {
+			background-size: contain;
+			background: url(#{$icons}/arrow-left.svg) 0 0 no-repeat scroll transparent;
+			content: "";
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 3;
+		}
+
+		&::before {
+			background-color: $c_highlight;
+			border-radius: 50%;
+			content: "";
+			height: 0;
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			transition: $transition;
+			width: 0;
+			z-index: 1;
+		}
+
+		&:hover {
+			&::before {
+				height: 30px;
+				width: 30px;
+			}
+		}
 	}
 }
 
