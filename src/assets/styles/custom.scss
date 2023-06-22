@@ -88,6 +88,10 @@ input {
 	}
 }
 
+.footer {
+	opacity: 0;
+}
+
 .logo {
 	display: inline-block;
 	height: 18px;
@@ -98,6 +102,24 @@ input {
 		object-fit: contain;
 		height: 100%;
 		width: 100%;
+	}
+}
+
+.my_teams {
+	background-color: #fff;
+	padding: 17px 0 10px;
+
+	&__empty {
+		align-items: center;
+		background-color: $c_input_bg;
+		border-radius: 8px;
+		color: $c_link;
+		display: flex;
+		font-family: $font_roboto;
+		font-size: 12px;
+		justify-content: center;
+		padding: 39px 0;
+		text-align: center;
 	}
 }
 
