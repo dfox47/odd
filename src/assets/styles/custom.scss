@@ -81,3 +81,27 @@ img {
 		z-index: 3;
 	}
 }
+
+.user-info {
+	align-items: center;
+	background-color: $c_content_bg;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 38px 0 31px;
+	text-align: center;
+
+	&__img {
+		display: block;
+		margin: 0 auto 5px;
+	}
+
+	&__level {
+		background-color: rgba(#fff, .05);
+		border-radius: 30px;
+		font-size: 10px;
+		line-height: 1;
+		padding: 3px 8px;
+	}
+}

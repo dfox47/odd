@@ -1,12 +1,13 @@
 // SCSS document
 // Powered by Denis FOX | dfox@foxartbox.com
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,700;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,700;1,600;1,700&family=Roboto:wght@500&display=swap');
 
 // colors
 $c_content_bg:      #112948;
-$c_primary:         #1e3554;
 $c_highlight:       #00b1ff;
+$c_link:            #6f8caa;
+$c_primary:         #1e3554;
 
 // @medias
 $desktop:           'only screen and (min-width: 1279px)';
@@ -19,4 +20,6 @@ $transition:        all .3s ease-in-out;
 $i:                 '/src/assets/i';
 $icons:             $i + '/icons';
 
-$font_main:         'Montserrat', Arial, Helvetica, sans-serif;
+$font_main:         'Montserrat',       Arial, Helvetica, sans-serif;
+$font_montserrat:   'Montserrat',       Arial, Helvetica, sans-serif;
+$font_roboto:       'Roboto',           Arial, Helvetica, sans-serif;
