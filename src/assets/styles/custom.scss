@@ -25,6 +25,17 @@ button {
 	border: 0 none;
 }
 
+h2 {
+	color: $c_title;
+	font-family: $font_montserrat;
+	font-size: 14px;
+	font-style: italic;
+	font-weight: 700;
+	line-height: 1.2;
+	padding: 0 0 15px;
+	text-transform: uppercase;
+}
+
 img {
 	max-width: 100%;
 }
@@ -138,4 +149,10 @@ img {
 		line-height: 1;
 		padding: 3px 8px;
 	}
+}
+
+.wrapper {
+	margin: 0 auto;
+	max-width: 900px;
+	padding: 0 15px;
 }

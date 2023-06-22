@@ -1,0 +1,28 @@
+.search {
+	background-color: #fff;
+	position: relative;
+
+	&__close {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 3;
+	}
+
+	&__input {
+		background: url(#{$icons}/search.svg) 10px 11px no-repeat scroll $c_input_bg;
+		border: 0 none;
+		border-radius: 80px;
+		padding: 10px 35px;
+		position: relative;
+		width: 100%;
+		z-index: 1;
+	}
+}
+
+.search_wrapper {
+	background-color: #fff;
+	border-top: 8px solid $c_border;
+	padding: 17px 0 20px;
+}
