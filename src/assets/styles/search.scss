@@ -23,6 +23,11 @@
 
 .search_wrapper {
 	background-color: #fff;
-	margin: 8px 0;
+	margin: 8px auto;
+	max-width: 600px;
 	padding: 17px 0;
+
+	@media #{$desktop} {
+		margin-top: 0;
+	}
 }

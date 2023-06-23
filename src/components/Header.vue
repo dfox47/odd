@@ -10,7 +10,9 @@
 				</a>
 			</div>
 
-			<div class="user-name">RichyRich</div>
+			<div class="show_mobile">
+				<div class="user-name">RichyRich</div>
+			</div>
 
 			<div class="notification">
 				<span class="notification__number">2</span>
@@ -18,9 +20,15 @@
 		</header>
 
 		<div class="user-info">
-			<img class="user-info__img" src="@/assets/i/avatar.png" alt="">
+			<div class="user-info__main">
+				<img class="user-info__img" src="@/assets/i/avatar.png" alt="">
 
-			<div class="user-info__level">Level 5</div>
+				<div class="user-info__level">Level 5</div>
+			</div>
+
+			<div class="show_desktop">
+				<div class="user-name">RichyRich</div>
+			</div>
 		</div>
 
 		<nav class="nav">

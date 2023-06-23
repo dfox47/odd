@@ -1,6 +1,9 @@
 .nav {
 	display: flex;
 	flex-wrap: wrap;
+	margin: 0 auto;
+	max-width: 600px;
+	width: 100%;
 }
 
 .nav-list {

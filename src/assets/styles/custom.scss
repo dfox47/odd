@@ -153,6 +153,8 @@ input {
 
 .my_teams {
 	background-color: #fff;
+	margin: 0 auto;
+	max-width: 600px;
 	padding: 17px 0 10px;
 
 	&__empty {
@@ -166,6 +168,10 @@ input {
 		justify-content: center;
 		padding: 39px 0;
 		text-align: center;
+	}
+
+	@media #{$desktop} {
+		border-radius: 0 0 8px 8px;
 	}
 }
 
@@ -196,6 +202,22 @@ input {
 		right: -8px;
 		text-align: center;
 		z-index: 3;
+	}
+}
+
+.show_desktop {
+	display: none;
+
+	@media #{$desktop} {
+		display: block;
+	}
+}
+
+.show_mobile {
+	display: block;
+
+	@media #{$desktop} {
+		display: none;
 	}
 }
 

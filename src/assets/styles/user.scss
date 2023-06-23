@@ -3,6 +3,10 @@
 	font-style: italic;
 	font-weight: 700;
 	margin: 0 0 0 -24px;
+
+	@media #{$desktop} {
+		margin: -20px 0 0 20px;
+	}
 }
 
 .user-info {
@@ -10,16 +14,15 @@
 	background-color: $c_content_bg;
 	color: #fff;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	margin: 0 auto;
 	max-width: 600px;
-	padding: 38px 0 31px;
+	padding: 40px 43px 31px;
 	text-align: center;
 
 	&__img {
 		display: block;
-		margin: 0 auto 5px;
+		margin: 0 0 5px;
 	}
 
 	&__level {
@@ -30,8 +33,17 @@
 		padding: 3px 8px;
 	}
 
+	&__main {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
 	@media #{$desktop} {
+		justify-content: flex-start;
 		border-radius: 8px 8px 0 0;
 		margin-top: 16px;
+		padding-bottom: 33px;
 	}
 }
