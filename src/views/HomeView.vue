@@ -67,6 +67,8 @@ export default {
 		filteredList() {
 			const searchVal = this.search.toLowerCase()
 
+			if (!searchVal || searchVal === ' ') return
+
 			return this.teams.filter(team => {
 				let $league = false
 
