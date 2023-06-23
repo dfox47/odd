@@ -4,10 +4,13 @@
 			<div class="header-left">
 				<button class="btn btn--back"></button>
 
-				<a class="logo" href="/"><img class="logo__img" src="@/assets/i/logo.svg" alt="logo"></a>
+				<a class="logo" href="/">
+					<img class="logo__img logo__img--mobile" src="@/assets/i/logo.svg" alt="ODD">
+					<img class="logo__img logo__img--desktop" src="@/assets/i/logo_l.svg" alt="ODD">
+				</a>
 			</div>
 
-			<div class="header-title">RichyRich</div>
+			<div class="user-name">RichyRich</div>
 
 			<div class="notification">
 				<span class="notification__number">2</span>

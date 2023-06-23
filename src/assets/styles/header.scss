@@ -5,16 +5,13 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 18px 15px;
+
+	@media #{$desktop} {
+		padding: 30px 25px;
+	}
 }
 
 .header-left {
 	align-items: center;
 	display: flex;
-}
-
-.header-title {
-	font-size: 15px;
-	font-style: italic;
-	font-weight: 700;
-	margin: 0 0 0 -24px;
 }
