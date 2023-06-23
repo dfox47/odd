@@ -69,8 +69,17 @@ export default {
 			const searchVal = this.search.toLowerCase()
 
 			return this.teams.filter(team => {
+				let $league = false
+
+				team.leagues.filter(league => {
+					if (league.toLowerCase().indexOf(searchVal) > -1) {
+						$league = true
+					}
+				})
+
 				return team.name.toLowerCase().indexOf(searchVal) > -1 ||
-					team.stadium.toLowerCase().indexOf(searchVal) > -1
+					team.stadium.toLowerCase().indexOf(searchVal) > -1 ||
+					$league
 			})
 		}
 	},
