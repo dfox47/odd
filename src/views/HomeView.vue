@@ -94,9 +94,6 @@ export default {
 				return '<span class="highlight">' + match + '</span>'
 			})
 		}
-	},
-	mounted() {
-		// this.searchInput()
 	}
 }
 </script>
