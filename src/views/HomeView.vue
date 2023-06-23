@@ -12,7 +12,7 @@
 			</div>
 
 			<div class="teams">
-				<div class="team" v-for="team in teams" :key="team.id">
+				<div class="team" v-for="team in filteredList" :key="team.id">
 					<div class="team__icon"></div>
 
 					<div class="team__desc">
@@ -60,16 +60,19 @@ export default {
 	},
 	created() {
 		axios.get('https://run.mocky.io/v3/ef80523b-0474-4104-8fe6-fe92f8360b28').then(response => {
-			console.log('--------------------------')
-			console.log(response.data)
 			this.teams = response.data
-			// this.teams = data.slice(0,10)
 		})
 	},
 	computed: {
-		// filteredList: function () {
-		// 	return this.teams.title.match(this.search)
-		// }
+		// https://stackoverflow.com/questions/47573098/how-do-i-search-through-multiple-fields-in-vue-js-2
+		filteredList() {
+			const searchVal = this.search.toLowerCase()
+
+			return this.teams.filter(team => {
+				return team.name.toLowerCase().indexOf(searchVal) > -1 ||
+					team.stadium.toLowerCase().indexOf(searchVal) > -1
+			})
+		}
 	},
 	methods: {
 		// https://x-team.com/blog/highlight-text-vue-regex/
@@ -81,17 +84,6 @@ export default {
 			return text.replace(new RegExp(this.search, "gi"), match => {
 				return '<span class="highlight">' + match + '</span>'
 			})
-		},
-		searchInput() {
-			let search = ref('')
-
-			const searchBase = ['some', 'any', 'text']
-
-			function filteredList() {
-				return searchBase.filter((team) => {
-					team.toLowerCase().includes(search.value.toLowerCase())
-				})
-			}
 		}
 	},
 	mounted() {
