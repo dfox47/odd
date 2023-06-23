@@ -5,13 +5,11 @@
 				<h2>Search teams</h2>
 
 				<div class="search">
-					<input class="search__input" type="text" placeholder="Search for a team" v-model="input">
+					<input class="search__input" type="text" placeholder="Search for a team" v-model="search">
 
 					<button class="btn btn--close search__close"></button>
 				</div>
 			</div>
-
-			<text-highlight :queries="['test']">More test test</text-highlight>
 
 			<div class="teams">
 				<div class="team" v-for="team in teams" :key="team.id">
@@ -19,12 +17,12 @@
 
 					<div class="team__desc">
 						<div class="team-leagues">
-							<div class="team-leagues__item" v-for="league in team.leagues">{{ league }}</div>
+							<div class="team-leagues__item" v-for="league in team.leagues" v-html="highlight(league)"></div>
 						</div>
 
-						<div class="team__name">{{ team.name.split('').join('') }}</div>
+						<div class="team__name" v-html="highlight(team.name)"></div>
 
-						<div class="team__stadium">{{ team.stadium }}</div>
+						<div class="team__stadium" v-html="highlight(team.stadium)"></div>
 					</div>
 
 					<div class="team_following">
@@ -56,8 +54,8 @@ import {ref} from 'vue'
 export default {
 	data() {
 		return {
-			teams: [],
-			input: ''
+			search: '',
+			teams: []
 		}
 	},
 	created() {
@@ -69,19 +67,29 @@ export default {
 		})
 	},
 	computed: {
-		filteredList: function () {
-			return this.teams.title.match(this.input)
-		}
+		// filteredList: function () {
+		// 	return this.teams.title.match(this.search)
+		// }
 	},
 	methods: {
+		// https://x-team.com/blog/highlight-text-vue-regex/
+		highlight(text) {
+			if (!this.search) {
+				return text
+			}
+
+			return text.replace(new RegExp(this.search, "gi"), match => {
+				return '<span class="highlight">' + match + '</span>'
+			})
+		},
 		searchInput() {
-			let input = ref('')
+			let search = ref('')
 
 			const searchBase = ['some', 'any', 'text']
 
 			function filteredList() {
 				return searchBase.filter((team) => {
-					team.toLowerCase().includes(input.value.toLowerCase())
+					team.toLowerCase().includes(search.value.toLowerCase())
 				})
 			}
 		}
