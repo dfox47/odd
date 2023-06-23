@@ -48,14 +48,15 @@ input {
 	cursor: pointer;
 	display: inline-block;
 	position: relative;
+	transition: $transition;
 
 	&--back {
 		height: 16px;
 		width: 9px;
 
 		&::after {
-			background-size: contain;
 			background: url(#{$icons}/arrow-left.svg) 0 0 no-repeat scroll transparent;
+			background-size: contain;
 			content: "";
 			height: 100%;
 			left: 0;
@@ -84,6 +85,27 @@ input {
 				height: 30px;
 				width: 30px;
 			}
+		}
+	}
+
+	&--close {
+		background: url(#{$icons}/close.svg) center center no-repeat scroll transparent;
+	}
+
+	&--submit {
+		background-color: $c_highlight;
+		border: 1px solid rgba($c_highlight, .99);
+		border-radius: 30px;
+		color: #fff;
+		font-family: $font_roboto;
+		font-size: 12px;
+		font-weight: 600;
+		padding: 6px 18px;
+		text-transform: uppercase;
+
+		&:hover {
+			background-color: #fff;
+			color: $c_highlight;
 		}
 	}
 }
@@ -181,6 +203,6 @@ input {
 
 .wrapper {
 	margin: 0 auto;
-	max-width: 900px;
+	max-width: 600px;
 	padding: 0 10px;
 }

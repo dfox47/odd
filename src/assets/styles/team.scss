@@ -1,0 +1,85 @@
+.team {
+	align-items: center;
+	display: grid;
+	font-family: $font_roboto;
+	grid-gap: 15px;
+	grid-template-columns: 40px 1fr 106px;
+	justify-content: space-between;
+	padding: 14px 10px 12px 10px;
+	width: 100%;
+
+	&:hover {
+		background-color: $c_input_bg;
+	}
+
+	&__desc {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__icon {
+		background: url(#{$icons}/team-placeholder.png) center center no-repeat scroll #fff;
+		border-radius: 50%;
+		display: block;
+		flex-grow: 1;
+		height: 40px;
+		position: relative;
+		width: 40px;
+	}
+
+	&__name {
+		font-size: 14px;
+		font-weight: 600;
+		padding: 0 10px 0 0;
+		position: relative;
+
+		&::after {
+			background-color: $c_border;
+			content: "";
+			font-weight: 400;
+			height: 10px;
+			position: absolute;
+			right: 5px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 1px;
+		}
+	}
+
+	&__stadium {
+		background: url(#{$icons}/stadium.svg) left center no-repeat scroll transparent;
+		font-size: 12px;
+		padding: 0 0 0 20px;
+	}
+}
+
+.team-leagues {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 11px;
+	width: 100%;
+
+	&__item {
+		&::after {
+			content: ",";
+			margin: 0 .4em 0 0;
+		}
+
+		&:last-child {
+			&::after {
+				display: none;
+			}
+		}
+	}
+}
+
+.team_following {
+	display: flex;
+	justify-content: flex-end;
+
+	&__btn {}
+}
+
+.teams {
+	margin: 10px 0 0;
+}
