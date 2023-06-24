@@ -12,12 +12,12 @@
 			</div>
 
 			<div class="teams">
-				<div class="team" v-for="team in filteredList" :key="team.id">
+				<div class="team" :class="{'team_is_following': team.isFollowing}" v-for="team in filteredList" :key="team.id">
 					<div class="team__icon"></div>
 
 					<div class="team__desc">
 						<div class="team-leagues">
-							<div class="team-leagues__item" v-for="league in team.leagues" v-html="highlight(league)"></div>
+							<div class="team-leagues__item" v-for="(league, index) in team.leagues" v-html="highlight(league)" :key="index"></div>
 						</div>
 
 						<div class="team__name" v-html="highlight(team.name)"></div>
@@ -26,9 +26,10 @@
 					</div>
 
 					<div class="team_following">
-						<button class="team_following__btn btn btn--submit">
-							<span class="team_following--true" v-if="team.is_following">Following</span>
-							<span class="team_following---false" v-else>Follow</span>
+						<button class="team_following__btn btn btn--submit" @click="toggleFollow(team.id)">
+<!--							<span class="team_following&#45;&#45;true" v-if="isFollowing">Following</span>-->
+<!--							<span class="team_following-&#45;&#45;false" v-else>Follow</span>-->
+							<span class="team_following---false">Follow</span>
 						</button>
 					</div>
 				</div>
@@ -39,7 +40,6 @@
 			<div class="wrapper">
 				<h2>My teams</h2>
 
-				<!--				<div class="my_teams__empty" v-if="filteredList().length">You aren't following any teams yet</div>-->
 				<div class="my_teams__empty">You aren't following any teams yet</div>
 			</div>
 		</div>
@@ -47,14 +47,14 @@
 </template>
 
 <script>
-
 import axios from 'axios'
+import { useMyTeamsStore } from '@/stores/myTeams.js'
 
 export default {
 	data() {
 		return {
 			search: '',
-			teams: []
+			teams: [],
 		}
 	},
 	created() {
@@ -67,7 +67,7 @@ export default {
 		filteredList() {
 			const searchVal = this.search.toLowerCase()
 
-			if (!searchVal || searchVal === ' ') return
+			// if (!searchVal || searchVal === ' ') return
 
 			return this.teams.filter(team => {
 				let $league = false
