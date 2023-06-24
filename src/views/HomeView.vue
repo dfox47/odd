@@ -7,8 +7,11 @@
 				<div class="search">
 					<input class="search__input" type="text" placeholder="Search for a team" v-model="search">
 
-					<button class="btn btn--close search__close"></button>
+<!--					<button class="btn btn&#45;&#45;close search__close" @click="searchReset()" v-if="searchEmpty">X</button>-->
+					<button class="btn btn--close search__close" @click="searchReset()"></button>
 				</div>
+
+				<div v-if="noResults">No results</div>
 			</div>
 
 			<div class="teams">
@@ -39,11 +42,11 @@
 			<div class="wrapper">
 				<h2>My teams</h2>
 
-				<div class="my_teams__empty" v-if="!items.length">You aren't following any teams yet</div>
+				<div class="my_teams__empty" v-if="!myTeams.length">You aren't following any teams yet</div>
 
-				<ul v-else>
-					<li v-for="item in items" :key="item.id">
-						{{ item.name }}
+				<ul v-else class="my_teams_list">
+					<li class="my_teams_list__item" v-for="myTeam in myTeams" :key="myTeam.id">
+						<span class="my_teams_list__name">{{ myTeam.name }}</span>
 					</li>
 				</ul>
 			</div>
@@ -61,7 +64,7 @@ export default {
 		return {
 			search: '',
 			teams: [],
-			teamsStore: {},
+			teamsStore: {}
 		}
 	},
 	created() {
@@ -92,9 +95,15 @@ export default {
 					$league
 			})
 		},
-		items() {
-			return this.teamsStore.items
+		myTeams() {
+			return this.teamsStore.myTeams
 		},
+		noResults() {
+			return this.search.length > 0 && (!this.filteredList.length || false)
+		},
+		searchEmpty() {
+			return this.search.length > 0
+		}
 	},
 	methods: {
 		// https://x-team.com/blog/highlight-text-vue-regex/
@@ -106,6 +115,9 @@ export default {
 			return text.replace(new RegExp(this.search, "gi"), match => {
 				return '<span class="highlight">' + match + '</span>'
 			})
+		},
+		searchReset() {
+			this.search = ''
 		},
 		toggleTeam(team, index) {
 			team.is_following = !team.is_following
