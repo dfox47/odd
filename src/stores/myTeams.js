@@ -1,23 +1,16 @@
 import { defineStore } from 'pinia'
 
 export const useMyTeamsStore = defineStore({
-	id: 'myTeams',
+	id: 'items',
 	state: () => ({
-		counter: 0
+		items: []
 	}),
-	getters: {
-		doubleCount: (state) => state.counter * 2
-	},
 	actions: {
-		increment() {
-			this.counter++
+		addItem(item) {
+			this.items.push(item)
 		},
-		toggleFollow(teamId) {
-			// const team = this.teams.find((obj)) => obj.id === teamId
-
-			if (team) {
-				team.follow = !team.follow
-			}
+		removeItem(index) {
+			this.items.splice(index, 1)
 		}
 	}
 })
