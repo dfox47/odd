@@ -43,15 +43,16 @@
 		<div class="my_teams">
 			<div class="wrapper">
 				<h2>My teams</h2>
-
-				<div class="my_teams__empty" v-if="!myTeams.length">You aren't following any teams yet</div>
-
-				<ul v-else class="my_teams_list">
-					<li class="my_teams_list__item" v-for="myTeam in myTeams" :key="myTeam.id">
-						<span class="my_teams_list__name">{{ myTeam.name }}</span>
-					</li>
-				</ul>
 			</div>
+
+			<div class="my_teams__empty" v-if="!myTeams.length">You aren't following any teams yet</div>
+
+			<ul v-else class="my_teams_list">
+				<li class="my_teams_list__item" v-for="myTeam in myTeams" :key="myTeam.id">
+					<div class="team__icon"></div>
+					<span class="my_teams_list__name">{{ myTeam.name }}</span>
+				</li>
+			</ul>
 		</div>
 	</div>
 </template>
