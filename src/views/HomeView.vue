@@ -7,10 +7,13 @@
 				<div class="search">
 					<input class="search__input" type="text" placeholder="Search for a team" v-model="search">
 
-					<button class="btn btn--close search__close" @click="searchReset()" v-if="searchEmpty"></button>
+					<button class="btn btn--close" @click="searchReset()" v-if="searchEmpty" title="Clear search"></button>
 				</div>
 
-				<div v-if="noResults">No results</div>
+				<div class="search_empty" v-if="noResults">
+					<img class="search_empty__img" src="@/assets/i/icons/no-results.svg" alt="">
+					<div class="search_empty__desc">No Teams Found</div>
+				</div>
 			</div>
 
 			<div class="teams">

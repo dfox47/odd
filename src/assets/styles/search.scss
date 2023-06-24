@@ -2,14 +2,6 @@
 	background-color: #fff;
 	position: relative;
 
-	&__close {
-		position: absolute;
-		right: 0;
-		top: 50%;
-		transform: translateY(-50%);
-		z-index: 3;
-	}
-
 	&__input {
 		background: url(#{$icons}/search.svg) 15px 11px no-repeat scroll $c_input_bg;
 		border: 0 none;
@@ -21,11 +13,31 @@
 	}
 }
 
+.search_empty {
+	align-items: center;
+	color: $c_link;
+	display: flex;
+	flex-direction: column;
+	font-family: $font_roboto;
+	font-size: 12px;
+	justify-content: center;
+	line-height: 1.2;
+	padding: 21px 0 0;
+	width: 100%;
+
+	&__img {
+		display: block;
+		margin: 0 0 11px;
+	}
+
+	&__desc {}
+}
+
 .search_wrapper {
 	background-color: #fff;
 	margin: 8px auto;
 	max-width: 600px;
-	padding: 17px 0;
+	padding: 17px 0 10px;
 
 	@media #{$desktop} {
 		margin-top: 0;

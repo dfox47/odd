@@ -51,6 +51,11 @@
 		font-size: 12px;
 		padding: 0 0 0 20px;
 	}
+
+	@media #{$desktop} {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
 }
 
 .team-leagues {

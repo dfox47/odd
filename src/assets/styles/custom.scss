@@ -92,9 +92,10 @@ input {
 		background: url(#{$icons}/close.svg) center center no-repeat scroll transparent;
 		height: 36px;
 		position: absolute;
-		right: 8px;
-		top: 18px;
+		right: 3px;
+		top: 0;
 		width: 36px;
+		z-index: 3;
 
 		&:hover {
 			opacity: .5;
@@ -234,4 +235,8 @@ input {
 	margin: 0 auto;
 	max-width: 600px;
 	padding: 0 10px;
+
+	@media #{$desktop} {
+		padding: 0 15px;
+	}
 }

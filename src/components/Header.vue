@@ -6,7 +6,7 @@
 
 				<a class="logo" href="/">
 					<img class="logo__img logo__img--mobile" src="@/assets/i/logo.svg" alt="ODD">
-					<img class="logo__img logo__img--desktop" src="@/assets/i/logo_l.svg" alt="ODD">
+					<img class="logo__img logo__img--desktop" src="@/assets/i/logo_l.svg" alt="ODDSPEDIA">
 				</a>
 			</div>
 
