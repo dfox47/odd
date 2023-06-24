@@ -1,16 +1,16 @@
 import { defineStore } from 'pinia'
 
 export const useMyTeamsStore = defineStore({
-	id: 'items',
+	id: 'myTeams',
 	state: () => ({
-		items: []
+		myTeams: []
 	}),
 	actions: {
-		addItem(item) {
-			this.items.push(item)
+		addItem(myTeams) {
+			this.myTeams.push(myTeams)
 		},
 		removeItem(index) {
-			this.items.splice(index, 1)
+			this.myTeams.splice(index, 1)
 		}
 	}
 })
