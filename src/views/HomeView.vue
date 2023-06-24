@@ -17,12 +17,12 @@
 			</div>
 
 			<div class="teams">
-				<div class="team" :class="{'team_is_following': team.is_following}" v-for="(team, index) in filteredList" :key="index + team.id">
+				<div class="team" :class="{'team_is_following': team.is_following}" v-for="team in filteredList" :key="team.name">
 					<div class="team__icon"></div>
 
 					<div class="team__desc">
 						<div class="team-leagues">
-							<div class="team-leagues__item" v-for="(league, index) in team.leagues" v-html="highlight(league)" :key="index"></div>
+							<div class="team-leagues__item" v-for="league in team.leagues" v-html="highlight(league)" :key="league.name"></div>
 						</div>
 
 						<div class="team__name" v-html="highlight(team.name)"></div>
@@ -31,7 +31,7 @@
 					</div>
 
 					<div class="team_following">
-						<button class="team_following__btn btn btn--submit" @click="toggleTeam(team, index)">
+						<button class="team_following__btn btn btn--submit" @click="toggleTeam(team)">
 							<span class="team_following--true" v-if="team.is_following">Following</span>
 							<span class="team_following--false" v-else>Follow</span>
 						</button>
@@ -47,10 +47,10 @@
 
 			<div class="my_teams__empty" v-if="!myTeams.length">You aren't following any teams yet</div>
 
-			<ul v-else class="my_teams_list">
-				<li class="my_teams_list__item" v-for="myTeam in myTeams" :key="myTeam.id">
+			<ul class="my_teams_list">
+				<li class="my_teams_list__item" v-for="team in myTeams" :key="team.name">
 					<div class="team__icon"></div>
-					<span class="my_teams_list__name">{{ myTeam.name }}</span>
+					<span class="my_teams_list__name">{{ team.name }}</span>
 				</li>
 			</ul>
 		</div>
@@ -122,10 +122,10 @@ export default {
 		searchReset() {
 			this.search = ''
 		},
-		toggleTeam(team, index) {
+		toggleTeam(team) {
 			team.is_following = !team.is_following
 
-			if (!team.is_following) this.teamsStore.removeItem(index)
+			if (!team.is_following) this.teamsStore.removeItem(team)
 			else this.teamsStore.addItem(team)
 		}
 	}

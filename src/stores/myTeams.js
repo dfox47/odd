@@ -6,11 +6,11 @@ export const useMyTeamsStore = defineStore({
 		myTeams: []
 	}),
 	actions: {
-		addItem(myTeams) {
-			this.myTeams.push(myTeams)
+		addItem(team) {
+			this.myTeams.push(team)
 		},
-		removeItem(index) {
-			this.myTeams.splice(index, 1)
+		removeItem(team) {
+			this.myTeams = this.myTeams.filter(item => item !== team)
 		}
 	}
 })

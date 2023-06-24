@@ -77,11 +77,18 @@
 	}
 }
 
+.team_is_following {
+	.btn {
+		&--submit {
+			background-color: #fff;
+			color: $c_highlight;
+		}
+	}
+}
+
 .team_following {
 	display: flex;
 	justify-content: flex-end;
-
-	&__btn {}
 }
 
 .teams {
