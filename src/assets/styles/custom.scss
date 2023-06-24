@@ -90,6 +90,11 @@ input {
 
 	&--close {
 		background: url(#{$icons}/close.svg) center center no-repeat scroll transparent;
+		height: 36px;
+		position: absolute;
+		right: 0;
+		top: 18px;
+		width: 36px;
 	}
 
 	&--submit {
