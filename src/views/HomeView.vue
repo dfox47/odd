@@ -7,8 +7,7 @@
 				<div class="search">
 					<input class="search__input" type="text" placeholder="Search for a team" v-model="search">
 
-<!--					<button class="btn btn&#45;&#45;close search__close" @click="searchReset()" v-if="searchEmpty">X</button>-->
-					<button class="btn btn--close search__close" @click="searchReset()"></button>
+					<button class="btn btn--close search__close" @click="searchReset()" v-if="searchEmpty"></button>
 				</div>
 
 				<div v-if="noResults">No results</div>
