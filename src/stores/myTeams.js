@@ -13,7 +13,7 @@ export const useMyTeamsStore = defineStore({
 			this.counter++
 		},
 		toggleFollow(teamId) {
-			const team = this.teams.find((obj)) => obj.id === teamId
+			// const team = this.teams.find((obj)) => obj.id === teamId
 
 			if (team) {
 				team.follow = !team.follow
