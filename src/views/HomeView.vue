@@ -81,19 +81,11 @@ export default {
 			// search not empty
 			if (!this.filteredList.length) return
 
-			let $teamActive = document.querySelector('.team.active')
-
-			if (!$teamActive) {
+			if (!document.querySelector('.team.active')) {
 				document.querySelector('.team').classList.add('active')
-
-				$teamActive = document.querySelector('.team.active')
 			}
 
-			document.querySelectorAll('.team').forEach((e) => {
-				if (e.classList.contains('active')) {
-					return false
-				}
-			})
+			let $teamActive = document.querySelector('.team.active')
 
 			switch (e.key) {
 				case 'ArrowUp':
