@@ -17,7 +17,14 @@
 			</div>
 
 			<div class="teams">
-				<div class="team" :class="{'team_is_following': team.is_following}" v-for="team in filteredList" :key="team.name">
+				<div
+					class="team"
+					:class="{'team_is_following': team.is_following, 'active': hover === team.name}"
+					v-for="team in filteredList"
+					:key="team.name"
+					@mouseenter="hover=team.name; removeActive()"
+					@mouseleave="hover=false"
+				>
 					<div class="team__icon"></div>
 
 					<div class="team__desc">
@@ -67,7 +74,8 @@ export default {
 		return {
 			search: '',
 			teams: [],
-			teamsStore: {}
+			teamsStore: {},
+			hover: false
 		}
 	},
 	created() {
@@ -78,14 +86,14 @@ export default {
 		this.teamsStore = useMyTeamsStore()
 
 		document.onkeydown = (e) => {
-			// search not empty
+			// search empty
 			if (!this.filteredList.length) return
 
 			if (!document.querySelector('.team.active')) {
 				document.querySelector('.team').classList.add('active')
 			}
 
-			let $teamActive = document.querySelector('.team.active')
+			const $teamActive = document.querySelector('.team.active')
 
 			switch (e.key) {
 				case 'ArrowUp':
@@ -109,6 +117,14 @@ export default {
 						$teamActive.nextElementSibling.classList.add('active')
 					}
 
+					break
+				case 'Enter':
+					e.preventDefault()
+
+					$teamActive.querySelector('.team_following__btn').click()
+
+					console.log('enter')
+					console.log('_____')
 					break
 			}
 		}
@@ -163,6 +179,11 @@ export default {
 
 			if (!team.is_following) this.teamsStore.removeItem(team)
 			else this.teamsStore.addItem(team)
+		},
+		removeActive() {
+			document.querySelectorAll('.team').forEach((e) => {
+				e.classList.remove('active')
+			})
 		}
 	}
 }

@@ -8,9 +8,10 @@
 	padding: 14px 10px 12px 10px;
 	width: 100%;
 
-	&:hover,
+	//&:hover,
 	&.active {
-		background-color: $c_input_bg;
+		//background-color: $c_input_bg;
+		background-color: green;
 	}
 
 	&__desc {
