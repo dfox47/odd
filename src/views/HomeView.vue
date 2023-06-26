@@ -43,9 +43,9 @@
 		<div class="my_teams">
 			<div class="wrapper">
 				<h2>My teams</h2>
-			</div>
 
-			<div class="my_teams__empty" v-if="!myTeams.length">You aren't following any teams yet</div>
+				<div class="my_teams__empty" v-if="!myTeams.length">You aren't following any teams yet</div>
+			</div>
 
 			<ul class="my_teams_list">
 				<li class="my_teams_list__item" v-for="team in myTeams" :key="team.name">
@@ -60,7 +60,7 @@
 <script>
 import axios from 'axios'
 
-import { useMyTeamsStore } from '@/stores/myTeams.js'
+import {useMyTeamsStore} from '@/stores/myTeams.js'
 
 export default {
 	data() {
@@ -76,13 +76,57 @@ export default {
 		})
 
 		this.teamsStore = useMyTeamsStore()
+
+		document.onkeydown = (e) => {
+			// search not empty
+			if (!this.filteredList.length) return
+
+			let $teamActive = document.querySelector('.team.active')
+
+			if (!$teamActive) {
+				document.querySelector('.team').classList.add('active')
+
+				$teamActive = document.querySelector('.team.active')
+			}
+
+			document.querySelectorAll('.team').forEach((e) => {
+				if (e.classList.contains('active')) {
+					return false
+				}
+			})
+
+			switch (e.key) {
+				case 'ArrowUp':
+					e.preventDefault()
+
+					const prevTeam = $teamActive.previousElementSibling
+
+					if (prevTeam) {
+						$teamActive.classList.remove('active')
+						$teamActive.previousElementSibling.classList.add('active')
+					}
+
+					break
+				case 'ArrowDown':
+					e.preventDefault()
+
+					const nextTeam = $teamActive.nextElementSibling
+
+					if (nextTeam) {
+						$teamActive.classList.remove('active')
+						$teamActive.nextElementSibling.classList.add('active')
+					}
+
+					break
+			}
+		}
 	},
 	computed: {
 		// https://stackoverflow.com/questions/47573098/how-do-i-search-through-multiple-fields-in-vue-js-2
 		filteredList() {
 			const searchVal = this.search.toLowerCase()
 
-			if (!searchVal || searchVal === ' ') return
+			// if (!searchVal || searchVal === ' ') return
 
 			return this.teams.filter(team => {
 				let $league = false
