@@ -8,10 +8,8 @@
 	padding: 14px 10px 12px 10px;
 	width: 100%;
 
-	//&:hover,
 	&.active {
-		//background-color: $c_input_bg;
-		background-color: green;
+		background-color: $c_input_bg;
 	}
 
 	&__desc {
