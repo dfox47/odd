@@ -72,10 +72,10 @@ import {useMyTeamsStore} from '@/stores/myTeams.js'
 export default {
 	data() {
 		return {
+			hover: false,
 			search: '',
 			teams: [],
-			teamsStore: {},
-			hover: false
+			teamsStore: {}
 		}
 	},
 	created() {
@@ -122,9 +122,6 @@ export default {
 					e.preventDefault()
 
 					$teamActive.querySelector('.team_following__btn').click()
-
-					console.log('enter')
-					console.log('_____')
 					break
 			}
 		}
@@ -134,7 +131,7 @@ export default {
 		filteredList() {
 			const searchVal = this.search.toLowerCase()
 
-			// if (!searchVal || searchVal === ' ') return
+			if (!searchVal || searchVal === ' ') return
 
 			return this.teams.filter(team => {
 				let $league = false
